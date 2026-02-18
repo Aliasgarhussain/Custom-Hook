@@ -1,32 +1,25 @@
-import useFetch from '../hooks/useFetch';
+import useFetch from "../hooks/useFetch";
 
-function Products() {
-    const { products, isLoading, err } = useFetch('https://fakestoreapi.com/products');
-  
-    console.log("Products:", products);
+function Photos() {
+    const [data, loading] = useFetch("https://picsum.photos/v2/list?limit=400")
 
-    if (isLoading) {
-        return <div className="loading">Loading...</div>;
+    if (loading) {
+        return <h2>Loading.....</h2>
     }
-  
-    if (err) {
-        return <div className="loading">Error: {err}</div>;
-    }
-  
+
     return (
-        <div className="products">
-            <h1>Products</h1>
-            <div className="product-list">
-                {products && products.map((product) => (
-                  <div key={product.id} className="product-card">
-                    <img src={product.image} alt={product.title} />
-                    <h3>{product.title}</h3>
-                    <p>${product.price}</p>
-                  </div>
-                ))}
+        <div>
+            <h1 className="heading">Products</h1>
+            <div className="grid">
+                {data.map((item) => (
+                <div key = {item.id} className="card">
+                    <img src = {item.download_url} />
+                    <p>{item.author}</p>
+                </div>
+            ))}
             </div>
         </div>
-    );
+    )
 }
 
-export default Products;
+export default Photos
