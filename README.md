@@ -4,7 +4,7 @@ This is a small React project where I built a custom `useFetch` hook to make API
 
 ## Live Demo
 
-Netlify link: https://customhooking.netlify.app/
+Netlify link: https://custom-hook-phot.netlify.app
 
 ## What this project does
 
